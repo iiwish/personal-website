@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASouthernCat | Portfolio</title>
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  
+  <!-- Unicons -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'primary': 'hsl(250, 69%, 61%)',
+            'primary-alt': 'hsl(250, 57%, 53%)',
+            'title': 'hsl(250, 8%, 15%)',
+            'text': 'hsl(250, 8%, 45%)',
+            'text-light': 'hsl(250, 8%, 65%)',
+            'input': 'hsl(250, 70%, 96%)',
+            'body': 'hsl(250, 60%, 99%)',
+            'container': '#FFF'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark:bg-gray-900">
+  <!-- Include components -->
+  <div id="header-component"></div>
+  
+  <main class="pt-16">
+    <div id="home-component"></div>
+    <div id="about-component"></div>
+    <div id="skills-component"></div>
+    <div id="portfolio-component"></div>
+    <div id="contact-component"></div>
+  </main>
+
+  <div id="footer-component"></div>
+
+  <!-- Scripts -->
+  <script>
+    // 加载组件的函数
+    async function loadComponent(elementId, path) {
+      try {
+        const response = await fetch(path);
+        const html = await response.text();
+        document.getElementById(elementId).innerHTML = html;
+      } catch (error) {
+        console.error(`Error loading component ${path}:`, error);
+      }
+    }
+
+    // 加载所有组件
+    document.addEventListener('DOMContentLoaded', () => {
+      loadComponent('header-component', 'components/header.html');
+      loadComponent('home-component', 'components/home.html');
+      loadComponent('about-component', 'components/about.html');
+      loadComponent('skills-component', 'components/skills.html');
+      loadComponent('portfolio-component', 'components/portfolio.html');
+      loadComponent('contact-component', 'components/contact.html');
+      loadComponent('footer-component', 'components/footer.html');
+    });
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

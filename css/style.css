@@ -1,0 +1,146 @@
+/* Base styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: hsl(250, 60%, 99%);
+  color: hsl(250, 8%, 45%);
+  scroll-padding-top: 3rem;
+}
+
+.dark body {
+  background-color: hsl(250, 28%, 12%);
+  color: hsl(250, 8%, 65%);
+}
+
+.dark .bg-body {
+  background-color: hsl(250, 28%, 12%);
+}
+
+.dark .text-title {
+  color: hsl(250, 8%, 95%);
+}
+
+/* Section styles */
+.section {
+  padding: 4rem 0;
+  scroll-margin-top: 3rem;
+}
+
+.section__title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: hsl(250, 8%, 15%);
+}
+
+.dark .section__title {
+  color: hsl(250, 8%, 95%);
+}
+
+.section__subtitle {
+  display: block;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Button styles */
+.button {
+  display: inline-flex;
+  align-items: center;
+  background-color: hsl(250, 69%, 61%);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: hsl(250, 57%, 53%);
+}
+
+.button__icon {
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+}
+
+/* Skills styles */
+.skills__percentage {
+  height: 5px;
+  border-radius: 0.25rem;
+  background-color: hsl(250, 69%, 61%);
+}
+
+/* Portfolio styles */
+.portfolio__img {
+  transition: transform 0.4s;
+}
+
+.portfolio__content:hover .portfolio__img {
+  transform: scale(1.1);
+}
+
+/* Navigation styles */
+.nav__link.text-primary {
+  position: relative;
+}
+
+.nav__link.text-primary::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: hsl(250, 69%, 61%);
+}
+
+/* Mobile navigation */
+@media (max-width: 767px) {
+  #nav-menu {
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-1rem);
+  }
+
+  #nav-menu:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  #nav-menu .nav__link {
+    padding: 1rem 0;
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .dark #nav-menu .nav__link {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Dark mode overrides */
+.dark .bg-white {
+  background-color: hsl(250, 29%, 15%);
+}
+
+.dark .shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Input fields dark mode */
+.dark .bg-input {
+  background-color: hsl(250, 29%, 20%);
+  border: 1px solid hsl(250, 29%, 25%);
+}
+
+/* Smooth transitions for theme switching */
+.bg-body,
+.bg-white,
+.text-title,
+.bg-input,
+.shadow-md {
+  transition: all 0.3s ease;
+}
